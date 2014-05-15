@@ -11,7 +11,7 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ReadOnlySwitcher.jar" size="26945" download="eager" />
+    <jar href="ReadOnlySwitcher.jar" size="26933" download="eager" />
     <jar href="lib/jna-platform.jar" size="1464423" download="eager" />
     <jar href="lib/jna.jar" size="914597" download="eager" />
     <jar href="lib/win32-x86-64.jar" size="78415" download="eager" />
