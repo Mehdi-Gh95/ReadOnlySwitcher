@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="627.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="readonlyswitcher.ReadOnlySwitcherController">
+  <children>
+    <Pane layoutX="0.0" layoutY="0.0" prefHeight="474.0" prefWidth="627.0">
+      <children>
+        <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="474.0" prefWidth="627.0">
+          <children>
+            <Label layoutX="51.0" layoutY="37.0" prefHeight="51.0" prefWidth="172.0" text="Actual state:">
+              <font>
+                <Font size="20.0" />
+              </font>
+            </Label>
+            <RadioButton id="rOnly" fx:id="readOnly" layoutX="300.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#readOnlySet" text="Read Only" textOverrun="ELLIPSIS">
+              <toggleGroup>
+                <ToggleGroup fx:id="group1" />
+              </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="readWrite" layoutX="417.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#readWriteSet" text="Read/Write" toggleGroup="$group1" />
+            <TextArea fx:id="text" editable="false" layoutX="32.0" layoutY="107.0" prefHeight="260.0" prefWidth="564.0" text="Edit register HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\StorageDevicePolicies&#10;&#10;Creat new DWORD called WriteProtect and give it a value of 1 for Read only or 0 for Read/Write&#10;&#10;This is apply only to devices mounted after thic command.&#10;&#10;Set register to Read only and mount device after that.&#10;&#10;&#10;" wrapText="true" />
+            <ImageView id="image" fx:id="imageUnlock" fitHeight="153.75" fitWidth="205.0" layoutX="232.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true" visible="true">
+              <image>
+                <Image url="@unlock.png" />
+              </image>
+            </ImageView>
+            <ImageView id="image" fx:id="imageLock" fitHeight="153.75" fitWidth="205.0" layoutX="232.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true" visible="true">
+              <image>
+                <Image url="@lock.png" />
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+      </children>
+    </Pane>
+  </children>
+  <stylesheets>
+    <URL value="@readonlyswitcher.css" />
+  </stylesheets>
+</AnchorPane>
