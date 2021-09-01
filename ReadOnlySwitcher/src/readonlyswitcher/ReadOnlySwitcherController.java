@@ -66,12 +66,10 @@ public class ReadOnlySwitcherController implements Initializable {
         if (!listControl.contains("StorageDevicePolicies")) {
             text.setText(INTRO_ERROR);
         } else {
-            List<String> listStorageDevicePolicies = Arrays.asList(Advapi32Util.registryGetKeys(HKEY, REGISTER));
-            if (listStorageDevicePolicies.contains(DWORD)) {
+            if ( Advapi32Util.registryValueExists(HKEY, REGISTER, DWORD)) {
+               
                 value = Advapi32Util.registryGetIntValue(HKEY, REGISTER, DWORD);
             } else {
-//                Advapi32Util.registryCreateKey(HKEY, REGISTER, DWORD);
-//                Advapi32Util.registrySetStringValue(HKEY, REGISTER, DWORD, "1");
                 Advapi32Util.registrySetIntValue(HKEY, REGISTER, DWORD, 1);
                 value = Advapi32Util.registryGetIntValue(HKEY, REGISTER, DWORD);
             }
@@ -110,12 +108,10 @@ public class ReadOnlySwitcherController implements Initializable {
         Integer value;
         if (rOnly) {
             Advapi32Util.registrySetIntValue(HKEY, REGISTER, DWORD, 1);
-//            Advapi32Util.registrySetStringValue(HKEY, REGISTER, DWORD, "1");
             value = Advapi32Util.registryGetIntValue(HKEY, REGISTER, DWORD);
             return 1==value;
         } else {
             Advapi32Util.registrySetIntValue(HKEY, REGISTER, DWORD, 0);
-//            Advapi32Util.registrySetStringValue(HKEY, REGISTER, DWORD, "0");
             value = Advapi32Util.registryGetIntValue(HKEY, REGISTER, DWORD);
             return 0==value;
         }
